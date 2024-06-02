@@ -31,8 +31,8 @@ enableGitInfo = true
 [params]
 editURL = "https://github.com/RedisLabs/redislabs-docs/edit/branch/content/"
 showVisitedLinks = true # default is false
-themeStyle = "flex" # "original" or "flex" # default "flex"
-themeVariant = "" # choose theme variant "green", "gold" , "gray", "blue" (default)
+themeStyle = "original" # "original" or "flex" # default "flex"
+themeVariant = "green" # choose theme variant "green", "gold" , "gray", "blue" (default)
 ordersectionsby = "weight" # ordersectionsby = "title"
 disableHomeIcon = true # default is false
 disableSearch = false # default is false
@@ -84,7 +84,7 @@ weight = 40
 [[menu.shortcuts]]
 name = "<label>Blog</label>"
 url = "https://redislabs.com/blog/"
-weight = 50
+weight = 500
 
 [taxonomies]
 
