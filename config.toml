@@ -42,8 +42,8 @@ menushortcutsnewtab = false # set true to open shortcuts links to a new tab/wind
 googleAnalytics = "UA-92003007-1"
 googleTagManager = "GTM-KNWQXKB"
 
-bannerText = "This site is archived and no longer updated. For the latest Redis documentation, see [https://redis.io/docs/]"
-bannerLink = "https://redis.io/docs/"
+bannerText = "This site is work in progress"
+bannerLink = "https://ideaarmor.com"
 
 mac_dl_link = "https://downloads.redisinsight.redislabs.com/latest/redisinsight-mac.dmg"
 linux_dl_link = "https://downloads.redisinsight.redislabs.com/latest/redisinsight-linux64"
