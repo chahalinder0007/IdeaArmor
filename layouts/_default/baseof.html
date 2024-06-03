@@ -4,52 +4,27 @@
     {{ partial "flex/head" . }}
   </head>
   <body data-url="{{ .RelPermalink }}">
-    {{ partial "flex/body-beforecontent" . }}
-
-    {{if .IsHome}}
-      {{ partial "home/hero" . }}
-      {{ partial "home/options" . }}
-    {{end}}
-
-    {{if not .IsHome}}
-      <div class="main-content">
-          <div class="main-content-left">
-            <!-- In-page banner -->
-            {{ if .Params.bannerText }}
-              <!-- Banner params are in the current page's front matter -->
-              {{ partial "banner-article.html" . }}
-            {{ else }}
-              <!-- Iterate through the page's ancestors to determine if a 
+    {{ partial "flex/body-beforecontent" . }} {{if .IsHome}} {{ partial
+    "home/hero" . }} {{ partial "home/options" . }} {{end}} {{if not .IsHome}}
+    <div class="main-content">
+      <div class="main-content-left">
+        <!-- In-page banner -->
+        {{ if .Params.bannerText }}
+        <!-- Banner params are in the current page's front matter -->
+        {{ partial "banner-article.html" . }} {{ else }}
+        <!-- Iterate through the page's ancestors to determine if a 
                 section-wide banner is enabled by a parent page's front matter -->
-              {{ $ancestorDirs := slice }}
-              {{ with .File }}
-                {{ $ancestorDirs = split .File.Dir "/" }}
-              {{ end }}
-              {{ $currPage := .Page }}
-              {{ range $i, $page := $ancestorDirs }}
-                {{ if and $currPage.Params.bannerText $currPage.Params.bannerChildren }}
-                  {{ partial "banner-article.html" $currPage }}
-                {{ end }}
-                {{ $currPage = $currPage.Parent }}
-              {{ end }}
-            {{ end }}
-
-            {{ block "main" . }}
-            {{ end }}
-          </div>
-          <div class="main-content-right">
-            {{ partial "mini-toc" . }}
-          </div>
+        {{ $ancestorDirs := slice }} {{ with .File }} {{ $ancestorDirs = split
+        .File.Dir "/" }} {{ end }} {{ $currPage := .Page }} {{ range $i, $page
+        := $ancestorDirs }} {{ if and $currPage.Params.bannerText
+        $currPage.Params.bannerChildren }} {{ partial "banner-article.html"
+        $currPage }} {{ end }} {{ $currPage = $currPage.Parent }} {{ end }} {{
+        end }} {{ block "main" . }} {{ end }}
       </div>
-      <div class="main-content-bottom">
-          {{ partial "post-bottom" . }}          
-      </div>
-    {{end}}
-    {{ partial "flex/body-aftercontent" . }}
-
-    {{ block "footer" . }}
-    {{ end }}
-
-    {{ partial "custom-footer" . }}
+      <div class="main-content-right">{{ partial "mini-toc" . }}</div>
+    </div>
+    <div class="main-content-bottom">{{ partial "post-bottom" . }}</div>
+    {{end}} {{ partial "flex/body-aftercontent" . }} {{ block "footer" . }} {{
+    end }} {{ partial "custom-footer" . }}
   </body>
 </html>

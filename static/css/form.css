@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  background: #fdfdfd;
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  background: url("../images/banner.jpg") 0 0 no-repeat;
+}
+
+.formWrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.formWrapper .formRow {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.formWrapper .formRow .formItem {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-bottom: 15px;
+}
+
+.formWrapper .formRow .formItem label {
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  position: relative;
+}
+
+.formWrapper .formRow .formItem label::after {
+  content: "*";
+  color: red;
+  margin-left: 3px;
+}
+
+.formWrapper .formRow .formItem input {
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+}
+
+.formWrapper .formButton {
+  background: #d05c00;
+  color: #ffffff;
+  border: none;
+  height: 35px;
+  width: 80px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#validationMessage {
+  color: red;
+  font-weight: bold;
+  background: #ffffff;
+  padding: 5px;
+  display: none;
+}
+
+.contentWrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.viewSection {
+  margin-top: 30px;
+  color: #064685;
+  width: 100%;
+  float: left;
+}
+
+.viewSection h1 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 30px;
+}
+
+.viewSection ul {
+  list-style: none;
+  margin: 30px 0;
+  padding: 0;
+}
+
+.viewSection ul li {
+  float: left;
+  border: 1px solid #aec3db;
+  margin: 0 1.25% 25px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  width: 28.5%;
+  cursor: pointer;
+  height: 35px;
+  background: #ffffff;
+}
+.viewSection ul li:hover {
+  background: #f5f5f5;
+}
+
+.viewSection ul li svg {
+  margin-right: 8px;
+  width: 35px;
+}
+
+.footerWrapper {
+  float: left;
+  width: 100%;
+  background: #062148;
+  padding: 30px 0;
+  margin-top: 30px;
+}
+
+.footerWrapper .contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+}
+.footerWrapper .socialLinks {
+  display: flex;
+  align-items: center;
+}
+
+.footerWrapper .socialLinks a {
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.footerWrapper .socialLinks a svg {
+  width: 30px;
+}
