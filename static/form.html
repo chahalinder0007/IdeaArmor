@@ -7,6 +7,22 @@
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
     <link href="./css/form.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script type="text/javascript">
+      function onFocus() {
+        let validationElement = document.getElementById("validationMessage");
+        validationElement.style.display = "none";
+      }
+      function openPopup() {
+        let validationElement = document.getElementById("subsWrapper");
+        validationElement.style.display = "flex";
+      }
+      function closePopup() {
+        let validationElement = document.getElementById("subsWrapper");
+        validationElement.style.display = "none";
+      }
+    </script>
   </head>
   <body>
     <section class="wrapper">
@@ -15,29 +31,64 @@
           <div class="formRow">
             <div class="formItem">
               <label>Projection Year</label>
-              <input id="projectionYear" type="number" />
+              <input
+                id="projectionYear"
+                onfocus="onFocus()"
+                type="number"
+                required
+              />
             </div>
             <div class="formItem">
               <label>Global Sales</label>
-              <input id="globalSales" type="number" />
+              <input
+                id="globalSales"
+                onfocus="onFocus()"
+                type="number"
+                step="0.01"
+                required
+              />
             </div>
             <div class="formItem">
               <label>CAGR</label>
-              <input id="cagr" type="number" />
+              <input
+                id="cagr"
+                onfocus="onFocus()"
+                type="number"
+                max="99"
+                required
+              />
             </div>
           </div>
           <div class="formRow">
             <div class="formItem">
               <label>Target Market Share</label>
-              <input id="targetMarketShare" type="number" />
+              <input
+                id="targetMarketShare"
+                onfocus="onFocus()"
+                type="number"
+                max="99"
+                required
+              />
             </div>
             <div class="formItem">
               <label>Royalty</label>
-              <input id="royalty" type="number" />
+              <input
+                id="royalty"
+                onfocus="onFocus()"
+                type="number"
+                max="99"
+                required
+              />
             </div>
             <div class="formItem">
               <label>Risk Adjusted Discount Rate</label>
-              <input id="discountRate" type="number" />
+              <input
+                id="discountRate"
+                onfocus="onFocus()"
+                type="number"
+                max="99"
+                required
+              />
             </div>
             <div id="validationMessage">Please fill required fields.</div>
           </div>
@@ -47,10 +98,13 @@
       </div>
     </section>
     <section class="contentWrapper">
+      <div class="resultSection">
+        <canvas id="myChart"></canvas>
+      </div>
       <div class="viewSection">
         <h1>View mobile vendor market share by <strong>platform</strong></h1>
         <ul>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 38 31"
               style="background-color: #ffffff00"
@@ -77,7 +131,7 @@
             </svg>
             Tablet
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 38 31"
               style="background-color: #ffffff00"
@@ -115,7 +169,7 @@
       <div class="viewSection">
         <h1>View mobile vendor market share by <strong>region</strong></h1>
         <ul>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 36 36"
               style="background-color: #ffffff00"
@@ -139,7 +193,7 @@
             </svg>
             Worldwide
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 36 36"
               style="background-color: #ffffff00"
@@ -163,7 +217,7 @@
             </svg>
             Africa
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 36 36"
               style="background-color: #ffffff00"
@@ -187,7 +241,7 @@
             </svg>
             Asia
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 36 36"
               style="background-color: #ffffff00"
@@ -211,7 +265,7 @@
             </svg>
             Europe
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 36 36"
               style="background-color: #ffffff00"
@@ -235,7 +289,7 @@
             </svg>
             North America
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 36 36"
               style="background-color: #ffffff00"
@@ -259,7 +313,7 @@
             </svg>
             Oceania
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 36 36"
               style="background-color: #ffffff00"
@@ -283,7 +337,7 @@
             </svg>
             South America
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               version="1.0"
               id="United_States"
@@ -3636,7 +3690,7 @@
             </svg>
             United states of America
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               version="1.0"
               id="United_kingdom"
@@ -5653,7 +5707,7 @@
             </svg>
             United Kingdom
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               version="1.0"
               id="India"
@@ -7966,7 +8020,7 @@
             </svg>
             India
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               id="Canada"
               xmlns="http://www.w3.org/2000/svg"
@@ -8022,7 +8076,7 @@
             </svg>
             Canada
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               version="1.0"
               id="Germany"
@@ -9969,7 +10023,7 @@
       <div class="viewSection">
         <h1>View mobile vendor market share by <strong>year</strong></h1>
         <ul>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 38 31"
               style="background-color: #ffffff00"
@@ -10088,7 +10142,7 @@
             </svg>
             Last 12 Months
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 38 31"
               style="background-color: #ffffff00"
@@ -10207,7 +10261,7 @@
             </svg>
             2023
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 38 31"
               style="background-color: #ffffff00"
@@ -10326,7 +10380,7 @@
             </svg>
             2022
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 38 31"
               style="background-color: #ffffff00"
@@ -10445,7 +10499,7 @@
             </svg>
             2021
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 38 31"
               style="background-color: #ffffff00"
@@ -10564,7 +10618,7 @@
             </svg>
             2020
           </li>
-          <li>
+          <li onclick="openPopup()">
             <svg
               viewBox="0 0 38 31"
               style="background-color: #ffffff00"
@@ -10745,32 +10799,164 @@
         </div>
       </div>
     </section>
+    <section class="subscriptionWrapper" id="subsWrapper">
+      <div class="subscriptionForm">
+        <span id="close" onclick="closePopup()">X</span>
+        <form id="subsForm">
+          <div class="formItem">
+            <label>Name</label>
+            <input id="name" required />
+          </div>
+          <div class="formItem">
+            <label>Email ID</label>
+            <input id="email" required />
+          </div>
+          <div class="formItem">
+            <label>Contact Number</label>
+            <input id="contact" type="number" required />
+          </div>
+          <!-- <div id="validationMessage">Please fill required fields.</div> -->
+
+          <button class="formButton" type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
     <script type="text/javascript">
+      let myChart;
+      let canvasElement = document.getElementById("myChart");
+      canvasElement.style.display = "none";
       document
         .getElementById("marketForm")
         .addEventListener("submit", function (event) {
           event.preventDefault();
-          console.log("hi");
+          if (myChart) {
+            myChart.destroy();
+            canvasElement.style.display = "none";
+          }
           let validationElement = document.getElementById("validationMessage");
-          let projectionYear = document.getElementById("projectionYear").value;
-          let globalSales = document.getElementById("globalSales").value;
-          let cagr = document.getElementById("cagr").value;
-          let targetMarketShare =
-            document.getElementById("targetMarketShare").value;
-          let royalty = document.getElementById("royalty").value;
-          let discountRate = document.getElementById("discountRate").value;
+          let projectionYear = parseFloat(
+            document.getElementById("projectionYear").value
+          );
+          let globalSales = parseFloat(
+            document.getElementById("globalSales").value
+          );
+          let cagr = parseFloat(document.getElementById("cagr").value);
+          let targetMarketShare = parseFloat(
+            document.getElementById("targetMarketShare").value
+          );
+          let royalty = parseFloat(document.getElementById("royalty").value);
+          let discountRate = parseFloat(
+            document.getElementById("discountRate").value
+          );
+          let chartLabels = [];
+          let chartData = [];
           if (
-            projectionYear ||
-            globalSales ||
-            cagr ||
-            targetMarketShare ||
-            royalty ||
+            projectionYear &&
+            globalSales &&
+            cagr &&
+            targetMarketShare &&
+            royalty &&
             discountRate
           ) {
             validationElement.style.display = "none";
+            let result = [];
+            for (let i = 0; i < 10; i++) {
+              let pgs =
+                i != 0 ? result[i - 1].potentialGlobalSales : globalSales;
+              if (i != 0) {
+                projectionYear = projectionYear + 1;
+                let percentageOfGlobalSale = (pgs * cagr) / 100;
+                pgs = percentageOfGlobalSale + pgs;
+              }
+              chartLabels.push(projectionYear);
+              let psop = (pgs * targetMarketShare) / 100;
+              let re = (psop * royalty) / 100;
+              re = parseFloat(re.toFixed(2));
+              let incrementedDiscountRate = discountRate / 100;
+              let incrementedIndex = i + 1;
+              let drf =
+                1 / Math.pow(incrementedDiscountRate + 1, incrementedIndex);
+              drf = parseFloat(drf.toFixed(2));
+              result.push({
+                year: projectionYear,
+                potentialGlobalSales: parseFloat(pgs.toFixed(2)),
+                potentialSalesOfProduct: parseFloat(psop.toFixed(2)),
+                royaltyEarning: re,
+                discountRateFactor: drf,
+                presentIpValue: parseFloat((re * drf * 1000).toFixed(2)),
+              });
+              chartData.push(parseFloat((re * drf * 1000).toFixed(2)));
+            }
+            console.log(result);
           } else {
             validationElement.style.display = "block";
           }
+          canvasElement.style.display = "block";
+          if (chartData) {
+            const ctx = document.getElementById("myChart").getContext("2d");
+            myChart = new Chart(ctx, {
+              type: "bar",
+              data: {
+                labels: chartLabels,
+                datasets: [
+                  {
+                    label: "Technology Valuation",
+                    data: chartData,
+                    backgroundColor: [
+                      "rgba(255, 99, 132, 0.2)",
+                      "rgba(54, 162, 235, 0.2)",
+                      "rgba(255, 206, 86, 0.2)",
+                      "rgba(75, 192, 192, 0.2)",
+                      "rgba(153, 102, 255, 0.2)",
+                      "rgba(255, 159, 64, 0.2)",
+                      "rgba(255, 140, 132, 0.2)",
+                      "rgba(255, 99, 235, 0.2)",
+                      "rgba(255, 68, 86, 0.2)",
+                      "rgba(75, 186, 186, 0.2)",
+                    ],
+                    borderColor: [
+                      "rgba(255, 99, 132, 1)",
+                      "rgba(54, 162, 235, 1)",
+                      "rgba(255, 206, 86, 1)",
+                      "rgba(75, 192, 192, 1)",
+                      "rgba(153, 102, 255, 1)",
+                      "rgba(255, 159, 64, 1)",
+                      "rgba(255, 140, 132, 1)",
+                      "rgba(255, 99, 235, 1)",
+                      "rgba(255, 68, 86, 1)",
+                      "rgba(75, 186, 186, 1)",
+                    ],
+                    borderWidth: 1,
+                  },
+                ],
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                  },
+                },
+                plugins: {
+                  datalabels: {
+                    anchor: "end",
+                    align: "top",
+                    formatter: (value) => value,
+                    color: "black",
+                    font: {
+                      weight: "bold",
+                    },
+                  },
+                },
+              },
+              plugins: [ChartDataLabels],
+            });
+          }
+        });
+      document
+        .getElementById("subsForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          console.log("enter");
         });
     </script>
   </body>

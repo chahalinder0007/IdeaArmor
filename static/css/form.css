@@ -49,6 +49,7 @@ body {
   height: 30px;
   border-radius: 4px;
   border: none;
+  padding: 0 8px;
 }
 
 .formWrapper .formButton {
@@ -70,6 +71,12 @@ body {
   background: #ffffff;
   padding: 5px;
   display: none;
+}
+
+#myChart {
+  border: 1px solid #ddd;
+  margin: 50px 0 30px;
+  padding: 20px;
 }
 
 .contentWrapper {
@@ -144,4 +151,70 @@ body {
 
 .footerWrapper .socialLinks a svg {
   width: 30px;
+}
+
+.subscriptionWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.subscriptionForm {
+  width: 300px;
+  padding: 40px 20px 20px;
+  border-radius: 5px;
+  background: #fff;
+  position: relative;
+}
+
+.subscriptionForm #close {
+  background: #ddd;
+  font-size: 12px;
+  font-weight: bold;
+  height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.subscriptionForm .formItem {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.subscriptionForm .formItem label {
+  margin-bottom: 3px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.subscriptionForm .formItem input {
+  height: 25px;
+  border: 1px solid #cacaca;
+  border-radius: 4px;
+}
+
+.subscriptionForm .formButton {
+  background: #d05c00;
+  color: #ffffff;
+  border: none;
+  height: 35px;
+  width: 80px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
 }
