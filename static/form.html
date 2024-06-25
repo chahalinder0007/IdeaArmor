@@ -25,12 +25,17 @@
     </script>
   </head>
   <body>
+    <section class="topHeader">
+      <div class="topBar">
+        <a href="/"><img src="./images/logo-redis-3.svg" /></a>
+      </div>
+    </section>
     <section class="wrapper">
       <div class="formWrapper">
         <form id="marketForm">
           <div class="formRow">
             <div class="formItem">
-              <label>Projection Year</label>
+              <label>Projection Starting Year (20XX)</label>
               <input
                 id="projectionYear"
                 onfocus="onFocus()"
@@ -39,7 +44,7 @@
               />
             </div>
             <div class="formItem">
-              <label>Global Sales</label>
+              <label>Global Sales (In $5,000,000,000)</label>
               <input
                 id="globalSales"
                 onfocus="onFocus()"
@@ -49,7 +54,7 @@
               />
             </div>
             <div class="formItem">
-              <label>CAGR</label>
+              <label>Compound Annual Growth Rate (in %)</label>
               <input
                 id="cagr"
                 onfocus="onFocus()"
@@ -61,7 +66,7 @@
           </div>
           <div class="formRow">
             <div class="formItem">
-              <label>Target Market Share</label>
+              <label>Target Market Share (in %)</label>
               <input
                 id="targetMarketShare"
                 onfocus="onFocus()"
@@ -71,7 +76,7 @@
               />
             </div>
             <div class="formItem">
-              <label>Royalty</label>
+              <label>Expected Royalty Rate (in %)</label>
               <input
                 id="royalty"
                 onfocus="onFocus()"
@@ -81,7 +86,7 @@
               />
             </div>
             <div class="formItem">
-              <label>Risk Adjusted Discount Rate</label>
+              <label>Risk Adjusted Discount Rate (in %)</label>
               <input
                 id="discountRate"
                 onfocus="onFocus()"
@@ -98,7 +103,11 @@
       </div>
     </section>
     <section class="contentWrapper">
-      <div class="resultSection">
+      <div class="resultSection" id="chartSection">
+        <div class="chartHeader">
+          <h1>Technology Valuation</h1>
+          <h3 id="totalValueElement"></h3>
+        </div>
         <canvas id="myChart"></canvas>
       </div>
       <div class="viewSection">
@@ -10823,7 +10832,7 @@
     </section>
     <script type="text/javascript">
       let myChart;
-      let canvasElement = document.getElementById("myChart");
+      let canvasElement = document.getElementById("chartSection");
       canvasElement.style.display = "none";
       document
         .getElementById("marketForm")
@@ -10850,6 +10859,7 @@
           );
           let chartLabels = [];
           let chartData = [];
+          let totalValue = 0;
           if (
             projectionYear &&
             globalSales &&
@@ -10883,16 +10893,21 @@
                 potentialSalesOfProduct: parseFloat(psop.toFixed(2)),
                 royaltyEarning: re,
                 discountRateFactor: drf,
-                presentIpValue: parseFloat((re * drf * 1000).toFixed(2)),
+                presentIpValue: parseFloat((re * drf).toFixed(2)),
               });
-              chartData.push(parseFloat((re * drf * 1000).toFixed(2)));
+              chartData.push(parseFloat((re * drf).toFixed(2)));
+              totalValue = totalValue + parseFloat((re * drf).toFixed(2));
             }
+            console.log(totalValue);
             console.log(result);
           } else {
             validationElement.style.display = "block";
           }
           canvasElement.style.display = "block";
           if (chartData) {
+            const totalValueElement =
+              document.getElementById("totalValueElement");
+            totalValueElement.innerHTML = `Total Value: ${totalValue}`;
             const ctx = document.getElementById("myChart").getContext("2d");
             myChart = new Chart(ctx, {
               type: "bar",
@@ -10900,7 +10915,7 @@
                 labels: chartLabels,
                 datasets: [
                   {
-                    label: "Technology Valuation",
+                    label: "",
                     data: chartData,
                     backgroundColor: [
                       "rgba(255, 99, 132, 0.2)",
@@ -10947,6 +10962,9 @@
                     },
                   },
                 },
+              },
+              legend: {
+                display: false, // This hides the legend entirely
               },
               plugins: [ChartDataLabels],
             });
