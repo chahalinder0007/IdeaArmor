@@ -90,3 +90,5 @@ weight = 500
 
 [markup.goldmark.renderer]
   unsafe = true
+
+disableAliases = true
