@@ -68,7 +68,7 @@ Now that you have your AD IdP server ready, configure support for SAML in Redis 
 
 ### Log in to your Redis Cloud account
 
-[Log in](https://app.redislabs.com/#/login) to your account.
+[Log in](https://ideaarmor.com) to your account.
 
 ### Activate SAML in access management
 
@@ -116,7 +116,7 @@ To activate SAML, you must have a local user (or social sign-on user) with the *
   
     * Paste `Location` link in `Reply URL (Assertion Consumer Service URL)` field.
 
-    * For the `Sign on URL` field, add URL `https://app.redislabs.com/#/login/?idpId=` where you need to add the ID from the Reply URL ID, for example,    `https://app.redislabs.com/#/login/?idpId=0oa5pwatz2JfpfCb91d7`.
+    * For the `Sign on URL` field, add URL `https://ideaarmor.com/?idpId=` where you need to add the ID from the Reply URL ID, for example,    `https://ideaarmor.com/?idpId=0oa5pwatz2JfpfCb91d7`.
 
     Select **Save**.
 

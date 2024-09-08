@@ -42,7 +42,7 @@ To create the Okta SAML integration application:
   
     > Complete the **Default RelayState** field only if you need your SAML flow to be IdP initiated.
     
-    * **Default RelayState**: `https://app.redislabs.com/#/login/?idpId=XXXXXX`. You will need to complete this URL with the `idpId` later. 
+    * **Default RelayState**: `https://ideaarmor.com/?idpId=XXXXXX`. You will need to complete this URL with the `idpId` later. 
     * **Name ID forma**: `Unspecified`
     * **Application username**: `Okta username`
     * **Update application username on**: `Create and update`
@@ -202,7 +202,7 @@ Now that you have a test IdP server ready as well as your user group, configure 
 
 ### Sign in to your Redis Cloud account
 
-Sign in to your [Redis Cloud console](https://app.redislabs.com/#/login).
+Sign in to your [Redis Cloud console](https://ideaarmor.com).
 
 ### Activate SAML in Access Management
 
@@ -240,7 +240,7 @@ To activate SAML, you must have a local user (or social sign-on user) with the *
 
    * **Single sign-on URL**: Use the information that you copied for **Location**.
    * **Audience URI (SP Entity ID)**: Use the information that you copied for **EntityID**.
-   * **Default RelayState**: Only needed if you want to have an IdP initiated flow. Take the ID from the location URL in step 3 (the content after the last forward slash "/") and append to the url (for example, `https://app.redislabs.com/#/login/?idpId=YOUR_LOCATION_ID`).
+   * **Default RelayState**: Only needed if you want to have an IdP initiated flow. Take the ID from the location URL in step 3 (the content after the last forward slash "/") and append to the url (for example, `https://ideaarmor.com/?idpId=YOUR_LOCATION_ID`).
 
     {{<image filename="images/rc/saml/okta_saml_app_int_13.png" alt="" >}}{{</image>}}
 

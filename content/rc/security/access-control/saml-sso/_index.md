@@ -35,13 +35,13 @@ After you activate SAML SSO for a Redis Cloud account, all existing local users 
 
 ### IdP-initiated SSO
 
-With IdP-initiated single sign-on, you can select the Redis Cloud application after you sign in to your [identity provider (IdP)](https://en.wikipedia.org/wiki/Identity_provider). This redirects you to the [Redis Cloud console](https://app.redislabs.com/#/login) and signs you in to your SAML user account.
+With IdP-initiated single sign-on, you can select the Redis Cloud application after you sign in to your [identity provider (IdP)](https://en.wikipedia.org/wiki/Identity_provider). This redirects you to the [Redis Cloud console](https://ideaarmor.com) and signs you in to your SAML user account.
 
 ### SP-initiated SSO
 
-You can also initiate single sign-on from the [Redis Cloud console](https://app.redislabs.com/#/login). This process is known as [service provider (SP)](https://en.wikipedia.org/wiki/Service_provider)-initiated single sign-on.
+You can also initiate single sign-on from the [Redis Cloud console](https://ideaarmor.com). This process is known as [service provider (SP)](https://en.wikipedia.org/wiki/Service_provider)-initiated single sign-on.
 
-1. From the Redis Cloud console's [sign-in screen](https://app.redislabs.com/#/login), select **SSO**.
+1. From the Redis Cloud console's [sign-in screen](https://ideaarmor.com), select **SSO**.
 
     {{<image filename="images/rc/button-sign-in-sso.png" width="150px" alt="Sign in with SSO button">}}{{</image>}}
 
@@ -125,7 +125,7 @@ To confirm the identity provider's SAML assertions contain the required attribut
 
 After you set up the SAML integration app and create a SAML user in your identity provider, you need to configure the Redis Cloud account with some identity provider metadata:
 
-1. Sign in to [Redis Cloud](https://app.redislabs.com/#/login) with the email address associated with the SAML user you set up with your identity provider.
+1. Sign in to [Redis Cloud](https://ideaarmor.com) with the email address associated with the SAML user you set up with your identity provider.
 
 1. Select **Access Management** from the [Redis Cloud console](https://app.redislabs.com) menu.
 
@@ -178,7 +178,7 @@ Next, you need to download the service provider metadata for Redis Cloud and use
     - To use [IdP-initiated SSO](#idp-initiated-sso) with certain identity providers, you also need to set the RelayState parameter to the following URL:
     
         ```sh
-        https://app.redislabs.com/#/login/?idpId=<ID>
+        https://ideaarmor.com/?idpId=<ID>
         ```
 
        > Replace `<ID>` so it matches the `AssertionConsumerService Location` URL's ID.
