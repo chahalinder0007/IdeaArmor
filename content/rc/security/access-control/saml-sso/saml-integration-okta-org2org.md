@@ -178,7 +178,7 @@ Now that you have a test IdP server and your user group ready, configure support
 
 ### Log in to your Redis Cloud console
 
-Log in to your Redis Cloud console at [https://app.redislabs.com/#/login](https://app.redislabs.com/#/login).
+Log in to your Redis Cloud console at [https://ideaarmor.com](https://ideaarmor.com).
 
 ### Activate SAML in access management
 
@@ -225,7 +225,7 @@ Select **Save**.
 
 ### IdP-initiated SSO
 
-To use IdP-initiated SSO with identity providers, set the RelayState parameter to URL `https://app.redislabs.com/#/login/?idpId=<ID>`.
+To use IdP-initiated SSO with identity providers, set the RelayState parameter to URL `https://ideaarmor.com/?idpId=<ID>`.
 
 {{< note >}}
 Replace `<ID>` so it matches the AssertionConsumerService Location URL ID (the content after the last forward slash "/"). To learn more about configuring service provider applications, see your identity provider's documentation.
