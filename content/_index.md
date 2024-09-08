@@ -1,5 +1,5 @@
 ---
-title: Redis Documentation
+title: IdeaArmour
 # description: Where documentation LIVES!
 toc: false
 ---
