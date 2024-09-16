@@ -19,8 +19,10 @@
         validationElement.style.display = "flex";
       }
       function closePopup() {
+        document.getElementById("subsForm").reset();
         let validationElement = document.getElementById("subsWrapper");
         validationElement.style.display = "none";
+        document.getElementById("successMessage").style.display = "none";
       }
     </script>
   </head>
@@ -10402,8 +10404,10 @@
             <label>Contact Number</label>
             <input id="contact" type="number" required />
           </div>
-          <!-- <div id="validationMessage">Please fill required fields.</div> -->
-
+          <div class="validationError" id="subsValidationMessage"></div>
+          <div class="successMessage" id="successMessage">
+            Thanks for contact us. <br />We will get back to you soon.
+          </div>
           <button class="formButton" type="submit">Submit</button>
         </form>
       </div>
@@ -10552,7 +10556,51 @@
         .getElementById("subsForm")
         .addEventListener("submit", function (event) {
           event.preventDefault();
-          console.log("enter");
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const contactNumber = document.getElementById("contact").value;
+          const validationError = document.getElementById(
+            "subsValidationMessage"
+          );
+          const successMessage = document.getElementById("successMessage");
+          const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          const isValidEmail = emailRegex.test(email);
+          if (isValidEmail) {
+            console.log(name, email, contactNumber);
+            validationError.innerText = "";
+            validationError.style.display = "none";
+            // Send data to an API
+            fetch(
+              "https://us-central1-ancient-cortex-431722-d4.cloudfunctions.net/main_run'",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  name,
+                  email,
+                  contactNumber,
+                }),
+              }
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                console.log("Success:", data);
+                document.getElementById("subsForm").reset();
+                successMessage.style.display = "block";
+                setTimeout(() => {
+                  successMessage.style.display = "none";
+                  document.getElementById("subsWrapper").style.display = "none";
+                }, 5000);
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          } else {
+            validationError.innerText = "Please enter valid email!";
+            validationError.style.display = "block";
+          }
         });
     </script>
   </body>
